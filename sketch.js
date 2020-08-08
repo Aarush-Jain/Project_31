@@ -39,10 +39,6 @@ function setup() {
     plinkos.push(new Plinko(i,375,10))
   }
 
-  if(frameCount % 60 === 0){
-    particles.push(new Particle(200,10,10))
-  }
-
   groundSprite = createSprite(240,790,480,20);
 
 }
@@ -53,6 +49,10 @@ function draw() {
   Engine.update(engine); 
 
   groundSprite.shapeColor = "yellow";
+
+  if(frameCount % 60 === 0){
+    particles.push(new Particle(random(width/2-10,width/2+10),10,10))
+  }
 
   for(var i = 0; i < plinkos.length;i++){
     plinkos[i].display()
@@ -67,5 +67,5 @@ function draw() {
   }
 
   drawSprites();
-  
+
 }
